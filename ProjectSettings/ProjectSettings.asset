@@ -588,7 +588,7 @@ PlayerSettings:
   facebookSdkVersion: 7.9.4
   apiCompatibilityLevel: 2
   cloudProjectId: 420712aa-232e-4fdb-8b04-d21cf97b6a6f
-  projectName: RPG-Test (2)
+  projectName: RPG-Test
   organizationId: goomplez
   cloudEnabled: 0
   enableNativePlatformBackendsForNewInputSystem: 0
