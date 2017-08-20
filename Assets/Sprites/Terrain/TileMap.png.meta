@@ -1,10 +1,25 @@
 fileFormatVersion: 2
 guid: 1adf7181f6734774d9494f8cc66d6fb7
-timeCreated: 1503194239
+timeCreated: 1503206549
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
     21300000: TileMap_0
+    21300002: TileMap_1
+    21300004: TileMap_2
+    21300006: TileMap_3
+    21300008: TileMap_4
+    21300010: TileMap_5
+    21300012: TileMap_6
+    21300014: TileMap_7
+    21300016: TileMap_8
+    21300018: TileMap_9
+    21300020: TileMap_10
+    21300022: TileMap_11
+    21300024: TileMap_12
+    21300026: TileMap_13
+    21300028: TileMap_14
+    21300030: TileMap_15
   serializedVersion: 4
   mipmaps:
     mipMapMode: 0
@@ -108,9 +123,13 @@ TextureImporter:
         width: 128
         height: 128
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 32, y: 32, z: 32, w: 32}
-      outline: []
+      outline:
+      - - {x: -64, y: 64}
+        - {x: -64, y: -64}
+        - {x: 64, y: -64}
+        - {x: 64, y: 64}
       physicsShape: []
       tessellationDetail: 0
     outline: []
