@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TileMap : MonoBehaviour {
+public class TileMapAlpha : MonoBehaviour {
 
     public int columns = 10;
     public int rows = 10;

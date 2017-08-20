@@ -432,6 +432,8 @@ MonoBehaviour:
   - {fileID: 1684898984226108, guid: fd08eb54272f1fd4c880750cecd8d241, type: 2}
   wallTiles:
   - {fileID: 1865702993650720, guid: b9edd7cc38c6efd4eb8345668e73a67b, type: 2}
+  boardHolder: {fileID: 0}
+  gridPositions: []
 --- !u!4 &905270700
 Transform:
   m_ObjectHideFlags: 0
