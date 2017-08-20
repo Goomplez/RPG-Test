@@ -7,6 +7,9 @@ public class TileMapEditor : Editor {
 
     // Reference to the TileMap instance we have selected
     public TileMap map;
+
+    TileBrush brush;
+
     
     public override void OnInspectorGUI()
     {
@@ -24,7 +27,7 @@ public class TileMapEditor : Editor {
         }
 
         // Enable texture2D field (allowing sprite textures)
-        map.texture2D = (Texture2D)EditorGUILayout.ObjectField("Texture 2d:", map.texture2D, typeof(Texture2D), false);
+        map.texture2D = (Texture2D)EditorGUILayout.ObjectField("Texture 2D:", map.texture2D, typeof(Texture2D), false);
 
         // Bad texture? Handled.
         if (map.texture2D == null)
@@ -35,7 +38,7 @@ public class TileMapEditor : Editor {
             EditorGUILayout.LabelField("Tile Size:", map.tileSize.x + "x" + map.tileSize.y);
             EditorGUILayout.LabelField("Grid Size in Units:", map.gridSize.x + "x" + map.gridSize.y);
             EditorGUILayout.LabelField("Pixels to Units:", map.pixelsToUnits.ToString());
-
+            UpdateBrush(map.currentTileBrush);
         }
 
         EditorGUILayout.EndVertical();
@@ -53,9 +56,16 @@ public class TileMapEditor : Editor {
         // Test for existence of texture2D in map
         if(map.texture2D != null)
         {
-            UpdateCalculations();   
+            UpdateCalculations();
+            NewBrush();
         }
     }
+
+    void OnDisable()
+    {
+        DestroyBrush();
+    }
+
 
     void UpdateCalculations()
     {
@@ -80,5 +90,42 @@ public class TileMapEditor : Editor {
         // Determine grid total size
         // Created sprite should have 
         map.gridSize = new Vector2((width / map.pixelsToUnits) * map.mapSize.x, (height / map.pixelsToUnits) * map.mapSize.y);
+    }
+
+    void CreateBrush()
+    {
+        var sprite = map.currentTileBrush;
+
+        if(sprite != null)
+        {
+            GameObject go = new GameObject("Brush");
+            go.transform.SetParent(map.transform);
+
+            brush = go.AddComponent<TileBrush>();
+            brush.renderer2D = go.AddComponent<SpriteRenderer>();
+
+            var pixelsToUnits = map.pixelsToUnits;
+            brush.brushSize = new Vector2(  sprite.textureRect.width / pixelsToUnits,
+                                            sprite.textureRect.height / pixelsToUnits);
+            brush.UpdateBrush(sprite);
+        }
+    }
+
+    void NewBrush()
+    {
+        if (brush == null)
+            CreateBrush();
+    }
+
+    void DestroyBrush()
+    {
+        if (brush != null)
+            DestroyImmediate(brush.gameObject);
+    }
+
+    public void UpdateBrush(Sprite sprite)
+    {
+        if (brush != null)
+            brush.UpdateBrush(sprite);
     }
 }

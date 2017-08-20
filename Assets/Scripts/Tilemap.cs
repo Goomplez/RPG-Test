@@ -21,6 +21,15 @@ public class TileMap : MonoBehaviour {
     // 
     public int pixelsToUnits = 100;
 
+    public int tileId = 0;
+
+
+    public Sprite currentTileBrush
+    {
+        get { return spriteReferences[tileId] as Sprite; }
+    }
+
+
     // Use this for initialization
     void Start () {
 		
