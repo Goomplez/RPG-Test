@@ -451,8 +451,9 @@ MonoBehaviour:
   - {fileID: 21300006, guid: 056fba3da2beeb24fa37203d893baaf0, type: 3}
   - {fileID: 21300002, guid: 056fba3da2beeb24fa37203d893baaf0, type: 3}
   - {fileID: 21300004, guid: 056fba3da2beeb24fa37203d893baaf0, type: 3}
+  - {fileID: 21300010, guid: 056fba3da2beeb24fa37203d893baaf0, type: 3}
   pixelsToUnits: 1
-  tileId: 2
+  tileId: 6
 --- !u!4 &817864580
 Transform:
   m_ObjectHideFlags: 0
